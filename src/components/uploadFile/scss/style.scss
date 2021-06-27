@@ -1,0 +1,104 @@
+.upload-file {
+  position: relative;
+  min-height: 231px;
+  border: 1px dashed $text-secondary;
+  border-radius: 4px;
+  background-color: rgba(22, 24, 25, 0.26);
+
+  &__input {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  &__content {
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    max-width: 300px;
+    margin: auto;
+    padding: 0 10px;
+  }
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 28px;
+    border: 2px solid $text-primary;
+  }
+  &__text {
+    text-align: center;
+
+    span {
+      color: $primary;
+    }
+  }
+  ::v-deep {
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 21px;
+      padding: 24px;
+  
+      &__item {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        z-index: 3;
+  
+        &::after {
+          content: '';
+          position: absolute;
+          top: 1px;
+          bottom: 1px;
+          left: 1px;
+          right: 1px;
+          z-index: -1;
+          border: 1px dashed $text-secondary;
+        }
+        & > img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 4px;
+        }
+        .remove {
+          position: absolute;
+          top: -7px;
+          right: -7px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          background-color: $danger;
+          cursor: pointer;
+          user-select: none;
+        }
+      }
+    }
+    .errors {
+      position: absolute;
+      left: 10px;
+      top: calc(100% + 4px);
+  
+      &__text {
+        font-size: 12px;
+        font-weight: 200;
+        color: $danger;
+      }
+    }
+  }
+}

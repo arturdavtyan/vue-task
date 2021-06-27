@@ -1,0 +1,46 @@
+.tabs {
+  $self: &;
+
+  min-width: 256px;
+  border-bottom: 1px solid rgba(139, 144, 145, 0.25);
+  overflow-x: auto;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    min-width: fit-content;
+  }
+  ::v-deep {
+    #{$self}__item {
+      position: relative;
+      padding: 20px 0;
+  
+      &:not(:last-child) {
+        margin-right: 35px;
+      }
+      &--active {
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 2px;
+          background-color: $primary;
+        }
+        #{$self}__text {
+          color: $text-primary;
+        }
+      }
+    }
+    #{$self}__text {
+      display: inline-block;
+      padding: 2px 14px;
+      color: $text-secondary;
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+}

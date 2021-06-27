@@ -1,0 +1,53 @@
+.header {
+  $self: &;
+
+  padding: 29px 0;
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__title {
+    min-width: 150px;
+
+    #{$self}__text {
+      font-size: 28px;
+      font-weight: 400;
+    }
+  }
+  &__right-side {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  &__plans {
+    margin-right: 36px;
+  }
+  &__button {
+    margin-top: -5px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+
+    &__title {
+      width: 100%;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+    &__right-side {
+      width: 100%;
+    }
+    &__plans.header__plans {
+      width: 100%;
+      justify-content: center;
+      margin-right: 0;
+    }
+    &__button {
+      margin: 26px auto 0;
+    }
+  }
+}

@@ -1,0 +1,113 @@
+.table-wrapper {
+  // Variables
+  $row-bg-color: #1A1C1E;
+  $line-width: 6px;
+
+  // Styles
+  max-width: 100%;
+  padding-bottom: 8px;
+  overflow-x: auto;
+
+  ::v-deep {
+    .table, .table__thead, .table__body, .table__footer {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .table {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 60px;
+        bottom: 22px;
+        left: 20px;
+        width: $line-width;
+        background-color: $row-bg-color;
+      }
+      &:first-child .table__header .table__title { padding-top: 0; }
+      &:not(:first-child).space {
+        margin-top: 12px;
+      }
+      &__title {
+        padding: 20px 16px 0;
+        font-size: 12px;
+        color: $text-secondary;
+      }
+      &__row {
+  
+        td {
+          padding-top: 8px;
+  
+          &:first-child .table__cell-inner {
+            display: flex;
+            align-items: center;
+            border-radius: 4px 0 0 4px;
+          }
+          &:last-child .table__cell-inner {
+            border-radius: 0 4px 4px 0;
+          }
+        }
+      }
+      &__cell-inner {
+        display: flex;
+        align-items: center;
+        height: 44px;
+        padding: 6.5px 16px;
+        background-color: $row-bg-color;
+      }
+      &__body {
+
+        td:first-child {
+
+          .table__cell-inner {
+            padding-left: 0;
+          }
+        }
+      }
+      &__footer {
+  
+        tr:first-child td:first-child { padding-left: 64px; }
+        tr td:first-child { padding-left: 48px; }
+        tr:not(:first-child) {
+          td:first-child {
+            position: relative;
+  
+            &::after {
+              content: "";
+              position: absolute;
+              top: 8px;
+              bottom: 0;
+              left: 20px;
+              width: 40px;
+              height: $line-width;
+              margin: auto;
+              background-color: $row-bg-color;
+            }
+          }
+        }
+      }
+      .triangle-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 100%;
+        cursor: pointer;
+        z-index: 4;
+
+        .triangle {
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 7.5px 5.5px 0 5.5px;
+          border-color: $text-primary transparent transparent transparent;
+
+          &.open {
+            transform: rotate(-90deg);
+          }
+        }
+      }
+    }
+  }
+}
